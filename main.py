@@ -14,6 +14,6 @@ def main() -> dt.datetime:
     return _now
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     print("Executing the main function ...")
     main()

@@ -12,6 +12,7 @@ main_msg = "The current datetime is:"
 def test_main():
     assert isinstance(main.main(), dt.datetime)
 
+
 def test_main_output(capsys):
     main.main()
     out, err = capsys.readouterr()
