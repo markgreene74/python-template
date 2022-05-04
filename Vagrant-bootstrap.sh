@@ -75,7 +75,7 @@ install_build_dependencies
 
 ### pip (system package)
 
-apt-get install python3-pip -y
+apt-get install python3-pip python3-venv -y
 pip_update
 
 ### add a custom section to the motd
@@ -132,6 +132,19 @@ elif [[ ${INSTALL_WITH} == "pyenv" ]] && [[ $RUN_PYTHON_INST ]]; then
 else
   echo "Python ${PYTHON_VERSION} is already installed (${INSTALL_WITH})"
 fi
+
+### install poetry
+
+# uncomment this section to install poetry
+#echo "Installing Poetry"
+## see https://python-poetry.org/docs/master/#installing-with-the-official-installer
+#
+#sudo -u ${VM_USER} bash <<EOF
+#  echo "Installing as:"; whoami; echo
+#  curl -sSL https://install.python-poetry.org | python3 -
+#  export PATH=$PATH:${VM_USER_HOME}/.local/bin
+#  poetry --version
+#EOF
 
 ### final steps
 
