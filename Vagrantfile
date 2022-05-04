@@ -1,4 +1,4 @@
-vm_name = "python-3-10-2"
+vm_name = "python-3-10-4"
 
 Vagrant.configure("2") do |config|
   config.vm.provider :virtualbox
