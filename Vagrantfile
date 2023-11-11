@@ -1,4 +1,4 @@
-vm_name = "python-3-10-4"
+vm_name = "python-3-11-6"
 
 Vagrant.configure("2") do |config|
   config.vm.provider :virtualbox
@@ -16,7 +16,7 @@ Vagrant.configure("2") do |config|
   config.vm.hostname = vm_name
   config.vm.define vm_name
 
-  config.vm.post_up_message = "Debian 11 (bullseye), Python 3.10, pyenv+pyenv-virtualenv (optional), docker."
+  config.vm.post_up_message = "Debian 11 (bullseye), Python 3.11, pyenv+pyenv-virtualenv (optional), docker."
 
   config.vm.provision "base", type: "shell", path: "Vagrant-bootstrap.sh"
   config.vm.provision "custom", type: "shell", inline: "echo placeholder"
