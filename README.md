@@ -1,6 +1,12 @@
 # markgreene74/python-template
 
-Simple template with `pyenv`/`pyenv-virtualenv` and Python `3.11`
+Simple template for Python `3.11` with `pyenv`/`pyenv-virtualenv` and `poetry`.
+
+- [quickstart](#quickstart)
+- [pyenv/pyenv-virtualenv](#pyenvpyenv-virtualenv)
+- [poetry](#poetry)
+- [vagrant](#vagrant)
+- [reference](#reference)
 
 ## quickstart
 
@@ -9,7 +15,7 @@ Simple template with `pyenv`/`pyenv-virtualenv` and Python `3.11`
   git clone git@github.com:markgreene74/python-template.git
   ```
 
-## `pyenv`/`pyenv-virtualenv`
+## pyenv/pyenv-virtualenv
 
 TODO
 - make sure `pyenv` is installed
@@ -31,15 +37,26 @@ TODO
   pip install --upgrade pip setuptools
   ```
 
-
 ## poetry
 
 - install poetry
   ```bash
   pip install --upgrade poetry
   ```
+- install the application runtime dependencies
+  ```bash
+  poetry install --only main
+  ```
+- install the application test dependencies
+  ```bash
+  poetry install --with test
+  ```
+- install the application dev, test dependencies
+  ```bash
+  poetry install --with test,dev
+  ```
 
-## `vagrant`
+## vagrant
 
 - create the file `.with_pyenv` if you want to install Python using `pyenv`
   ```shell
@@ -58,12 +75,9 @@ TODO
   vagrant ssh
   ```
 
-## `vagrant` + `pyenv`/`pyenv-virtualenv`
+## reference
 
-
-## Reference
-
-### poetry
-- [Installation](https://python-poetry.org/docs/#installation)
-- [Installing poetry manually](https://python-poetry.org/docs/#installing-manually)
-- [Managing dependencies](https://python-poetry.org/docs/managing-dependencies/)
+- poetry
+  - [Installation](https://python-poetry.org/docs/#installation)
+  - [Installing poetry manually](https://python-poetry.org/docs/#installing-manually)
+  - [Managing dependencies](https://python-poetry.org/docs/managing-dependencies/)

@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "python-template"
+version = "0.1.0"
+description = "A simple template for Python >=3.11"
+authors = ["markgreene74 <markgreene74@users.noreply.github.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+
+[tool.poetry.group.test.dependencies]
+pytest = "^7.4.3"
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.11.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
