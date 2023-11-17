@@ -55,6 +55,16 @@ TODO
   ```bash
   poetry install --with test,dev
   ```
+- install the dependencies but not the current project
+  ```bash
+  poetry install --no-root --with test,dev
+  ```
+
+## pre-commit
+
+This project use `pre-commit`. A `.pre-commit-config.yaml` is included.
+
+Run `pre-commit install` to install the Git hooks.
 
 ## vagrant
 
@@ -81,3 +91,7 @@ TODO
   - [Installation](https://python-poetry.org/docs/#installation)
   - [Installing poetry manually](https://python-poetry.org/docs/#installing-manually)
   - [Managing dependencies](https://python-poetry.org/docs/managing-dependencies/)
+- pre-commit
+  - [Installation](https://pre-commit.com/#install)
+  - [Usage](https://pre-commit.com/#usage)
+  - [Supported hooks](https://pre-commit.com/hooks.html)
