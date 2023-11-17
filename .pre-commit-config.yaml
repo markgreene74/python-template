@@ -1,0 +1,47 @@
+# See https://pre-commit.com for more information
+
+exclude: ^(profiling/|tests/data/)
+
+repos:
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+    -   id: check-added-large-files
+    -   id: check-ast
+    -   id: check-builtin-literals
+    -   id: check-docstring-first
+    -   id: check-executables-have-shebangs
+    -   id: check-shebang-scripts-are-executable
+    -   id: check-merge-conflict
+    -   id: check-yaml
+    -   id: debug-statements
+    -   id: detect-private-key
+    -   id: end-of-file-fixer
+    -   id: mixed-line-ending
+    -   id: requirements-txt-fixer
+    -   id: trailing-whitespace
+
+-   repo: https://github.com/psf/black
+    rev: 23.11.0
+    hooks:
+    -   id: black
+
+# -   repo: https://github.com/PyCQA/pylint
+#     rev: v2.17.2
+#     hooks:
+#     -   id: pylint
+
+-   repo: https://github.com/pycqa/isort
+    rev: 5.12.0
+    hooks:
+    -   id: isort
+
+#-   repo: https://github.com/PyCQA/prospector
+#    rev: 1.9.0
+#    hooks:
+#    -   id: prospector
+
+-   repo: https://github.com/PyCQA/autoflake
+    rev: v2.2.1
+    hooks:
+    -   id: autoflake
