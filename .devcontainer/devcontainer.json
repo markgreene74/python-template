@@ -1,0 +1,22 @@
+{
+  "name": "python-template-3-11",
+  "image": "mcr.microsoft.com/devcontainers/python:3.11-bullseye",
+
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils:2": {
+      "configureZshAsDefaultShell": true,
+      "username": "devcontainer"
+    },
+    "ghcr.io/devcontainers-contrib/features/black:2": {},
+    "ghcr.io/devcontainers-contrib/features/pre-commit:2": {},
+    "ghcr.io/devcontainers-contrib/features/poetry:2": {},
+    "ghcr.io/devcontainers-contrib/features/pylint:2": {},
+    "ghcr.io/devcontainers-contrib/features/flake8:2": {},
+    "ghcr.io/devcontainers-contrib/features/ruff:1":  {},
+  },
+
+  "postCreateCommand": "pip3 install --user --upgrade pip setuptools",
+  "postCreateCommand": "poetry install --no-root --with test,dev",
+  "postCreateCommand": "pre-commit install",
+
+}
