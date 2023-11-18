@@ -1,0 +1,75 @@
+# This workflow will install Python dependencies, run tests and lint with a single version of Python
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
+
+name: "Run tests and lint (Python 3.11)"
+
+on:
+  push:
+    branches: [ "main" , "feature/**", "fix/**"]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  POETRY_VERSION: 1.7.0
+  POETRY_HOME: /opt/poetry
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Python 3.11
+      uses: actions/setup-python@v4
+      with:
+        python-version: "3.11"
+    - name: Cache pip dependencies
+      id: cache-pip
+      uses: actions/cache@v3
+      env:
+        cache-name: cache-pip-dependencies
+      with:
+        path: ~/.local
+        key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/pyproject.toml') }}
+    - if: ${{ steps.cache-pip.outputs.cache-hit != 'true' }}
+      name: List the state of pip dependencies
+      continue-on-error: true
+      run: pip freeze
+    - name: Install pip dependencies
+      # see https://python-poetry.org/docs/#ci-recommendations
+      run: |
+        python -m pip install --upgrade pip setuptools
+        pip install flake8
+        python -m venv $POETRY_HOME
+        $POETRY_HOME/bin/pip install poetry==$POETRY_VERSION
+        $POETRY_HOME/bin/poetry --version
+    - name: Cache poetry dependencies
+      id: cache-poetry
+      uses: actions/cache@v3
+      env:
+        cache-name: cache-poetry-dependencies
+      with:
+        path: ${{ env.POETRY_HOME}}
+        key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/poetry.lock') }}
+    - if: ${{ steps.cache-poetry.outputs.cache-hit != 'true' }}
+      name: List the state of poetry dependencies
+      continue-on-error: true
+      run: $POETRY_HOME/bin/poetry show --tree
+    - name: Install poetry dependencies
+      run: |
+        $POETRY_HOME/bin/poetry install --no-root --no-interaction
+    - name: Lint with flake8
+      run: |
+        # stop the build if there are Python syntax errors or undefined names
+        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+        # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
+        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+    - name: Test with pytest
+      run: |
+        export PYTHONPATH=$PYTHONPATH:.
+        $POETRY_HOME/bin/poetry run pytest
