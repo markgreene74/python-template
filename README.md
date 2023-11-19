@@ -1,4 +1,4 @@
-# markgreene74/python-template
+# markgreene74/python-template [![Run tests and lint (Python 3.11)](https://github.com/markgreene74/python-template/actions/workflows/python-run-tests.yml/badge.svg?branch=main)](https://github.com/markgreene74/python-template/actions/workflows/python-run-tests.yml)
 
 Simple template for Python `3.11` with `pyenv`/`pyenv-virtualenv` and `poetry`.
 
