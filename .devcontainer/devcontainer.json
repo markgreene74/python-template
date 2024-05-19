@@ -1,6 +1,6 @@
 {
-  "name": "python-template-3-11",
-  "image": "mcr.microsoft.com/devcontainers/python:3.11-bullseye",
+  "name": "python-template-3-12",
+  "image": "mcr.microsoft.com/devcontainers/python:3.12-bookworm",
 
   "features": {
     "ghcr.io/devcontainers/features/common-utils:2": {

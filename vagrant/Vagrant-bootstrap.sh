@@ -5,7 +5,7 @@ export VM_USER=vagrant
 export VM_USER_HOME=/home/${VM_USER}
 export PYENV_ROOT=${VM_USER_HOME}/.pyenv
 
-export PYTHON_VERSION="3.11.6"
+export PYTHON_VERSION="3.12.3"
 
 ### helper functions
 

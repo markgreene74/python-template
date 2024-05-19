@@ -1,6 +1,6 @@
-# markgreene74/python-template [![Run tests and lint (Python 3.11)](https://github.com/markgreene74/python-template/actions/workflows/python-run-tests.yml/badge.svg?branch=main)](https://github.com/markgreene74/python-template/actions/workflows/python-run-tests.yml)
+# markgreene74/python-template [![Run tests and lint (Python 3.12)](https://github.com/markgreene74/python-template/actions/workflows/python-run-tests.yml/badge.svg?branch=main)](https://github.com/markgreene74/python-template/actions/workflows/python-run-tests.yml)
 
-Simple template for Python `3.11` with `pyenv`/`pyenv-virtualenv` and `poetry`.
+Simple template for Python `3.12` with `pyenv`/`pyenv-virtualenv` and `poetry`.
 
 - [quickstart](#quickstart)
 - [pyenv/pyenv-virtualenv](#pyenvpyenv-virtualenv)
@@ -20,17 +20,17 @@ Simple template for Python `3.11` with `pyenv`/`pyenv-virtualenv` and `poetry`.
 TODO
 - make sure `pyenv` is installed
 - make sure `pyenv-virtualenv` is installed
-- install python `3.11`, for example `3.11.6`
+- install python `3.12`, for example `3.12.3`
   ```bash
-  pyenv install 3.11.6
+  pyenv install 3.12.3
   ```
 - create a virtual environment
   ```bash
-  pyenv virtualenv 3.11.6 python-template-3-11
+  pyenv virtualenv 3.12.3 python-template-3-12
   ```
 - activate the virtual environment
   ```bash
-  pyenv activate python-template-3-11
+  pyenv activate python-template-3-12
   ```
 - make sure `pip` and `setuptools` are up-to-date
   ```bash
@@ -41,7 +41,7 @@ TODO
 
 - install poetry
   ```bash
-  pip install --upgrade poetry
+  pip install --upgrade poetry==1.8.3
   ```
 - install the application runtime dependencies
   ```bash
