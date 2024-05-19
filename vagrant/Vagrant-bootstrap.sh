@@ -84,7 +84,7 @@ cat << EOF > /etc/update-motd.d/99-custom
 #!/bin/bash
 
 echo
-if [[ -f /vagrant/.with_pyenv ]] && [[ -d /home/vagrant/.pyenv ]]; then
+if [[ -f /vagrant/vagrant/.with_pyenv ]] && [[ -d /home/vagrant/.pyenv ]]; then
     echo "Python ${PYTHON_VERSION} installed with pyenv (\$(${PYENV_ROOT}/bin/pyenv --version))"
 else
     echo "Python ${PYTHON_VERSION} installed from source"
@@ -111,7 +111,7 @@ systemctl restart nginx
 
 ### install Python using pyenv or alternatively from the source
 
-if [[ -f /vagrant/.with_pyenv ]]; then
+if [[ -f /vagrant/vagrant/.with_pyenv ]]; then
   INSTALL_WITH="pyenv"
 else
   INSTALL_WITH="source"

@@ -1,6 +1,6 @@
-import pytest
 import datetime as dt
-import main
+
+from application import main
 
 # variables
 MAIN_MSG = "The current datetime is:"
