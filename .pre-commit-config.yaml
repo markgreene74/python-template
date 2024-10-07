@@ -1,10 +1,8 @@
-# See https://pre-commit.com for more information
-
 exclude: ^(profiling/|tests/data/)
 
 repos:
 -   repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.6.0
+    rev: v5.0.0
     hooks:
     -   id: check-added-large-files
     -   id: check-ast
@@ -22,7 +20,7 @@ repos:
     -   id: trailing-whitespace
 
 -   repo: https://github.com/psf/black
-    rev: 24.4.2
+    rev: 24.10.0
     hooks:
     -   id: black
 
