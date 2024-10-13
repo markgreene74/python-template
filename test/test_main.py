@@ -16,4 +16,5 @@ def test_main_output(capsys):
     main.main()
     out, err = capsys.readouterr()
     assert MAIN_MSG in out
+    assert "\x1b[1;35m" in out  # the output contains colours
     assert err == ""
