@@ -72,4 +72,6 @@ jobs:
     - name: Test with pytest
       run: |
         export PYTHONPATH=$PYTHONPATH:.
+        # make sure pytest will use color in terminal output
+        export FORCE_COLOR="true"
         $POETRY_HOME/bin/poetry run pytest
