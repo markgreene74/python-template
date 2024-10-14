@@ -3,23 +3,24 @@
 Simple template for Python `3.12` with `pyenv`/`pyenv-virtualenv` and `poetry`.
 
 - [quickstart](#quickstart)
-- [pyenv/pyenv-virtualenv](#pyenvpyenv-virtualenv)
-- [poetry](#poetry)
+  - [pyenv/pyenv-virtualenv](#pyenvpyenv-virtualenv)
+  - [poetry](#poetry)
+  - [pre-comit](#pre-commit)
+- [docker](#docker)
 - [vagrant](#vagrant)
 - [reference](#reference)
 
 ## quickstart
 
-- clone the repo
-  ```shell
-  git clone git@github.com:markgreene74/python-template.git
-  ```
+### clone the repo
 
-## pyenv/pyenv-virtualenv
+```shell
+git clone git@github.com:markgreene74/python-template.git
+ ```
 
-TODO
-- make sure `pyenv` is installed
-- make sure `pyenv-virtualenv` is installed
+### pyenv/pyenv-virtualenv
+
+- make sure `pyenv` and `pyenv-virtualenv` are installed
 - install python `3.12`, for example `3.12.3`
   ```bash
   pyenv install 3.12.3
@@ -37,34 +38,60 @@ TODO
   pip install --upgrade pip setuptools
   ```
 
-## poetry
+### poetry
 
 - install poetry
   ```bash
   pip install --upgrade poetry==1.8.3
   ```
-- install the application runtime dependencies
+- to install
+  - the application runtime dependencies
+    ```bash
+    poetry install --only main
+    ```
+  - the application test dependencies
+    ```bash
+    poetry install --with test
+    ```
+  - the application dev and test dependencies
+    ```bash
+    poetry install --with test,dev
+    ```
+  - the dependencies but not the current project
+    ```bash
+    poetry install --no-root --with test,dev
+    ```
+
+### pre-commit
+
+This project uses [`pre-commit`](https://pre-commit.com/).
+
+- install the hooks from the `.pre-commit-config.yaml` file
   ```bash
-  poetry install --only main
-  ```
-- install the application test dependencies
-  ```bash
-  poetry install --with test
-  ```
-- install the application dev, test dependencies
-  ```bash
-  poetry install --with test,dev
-  ```
-- install the dependencies but not the current project
-  ```bash
-  poetry install --no-root --with test,dev
+  pre-commit install
   ```
 
-## pre-commit
+## docker
 
-This project use `pre-commit`. A `.pre-commit-config.yaml` is included.
+- build the image
+  ```shell
+  docker build -t python-template .
+  ```
+- run the container
+  ```shell
+  docker run -it --rm python-template
+  ```
 
-Run `pre-commit install` to install the Git hooks.
+Intermediate stages (`test`, `dev`) are available in the `Dockerfile`. Build them with:
+```shell
+docker build -t python-template . --target <stage>
+```
+
+For example, build and tun the tests with:
+```shell
+docker build -t python-template . --target test && \
+  docker run -it --rm python-template
+```
 
 ## vagrant
 
