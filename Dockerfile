@@ -34,7 +34,7 @@ RUN apt-get update && \
 USER user
 ENV PATH="${PATH}:/home/user/.local/bin/"
 WORKDIR /usr/src/app
-COPY --chown=user:user .gitignore .pre-commit-config.yaml ./
+COPY --chown=user:user .pre-commit-config.yaml ./
 RUN poetry install --with test,dev --no-root
 RUN git init . && \
     poetry run pre-commit --version && \
